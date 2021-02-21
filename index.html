@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>startup generator</title>
+    <script>
+        const allbizs = [
+            'сервис аренды лопат для откапывания машин',
+            "покупка подписчиков для телеграма и инстаграма",
+            "аренда музыки для проведения вечеринок",
+            "организация катков возле дома на день,неделю",
+            "сервис - передвижная мойка для авто"
+        ]
+        let bizs = [...allbizs]
+
+        function nextBiz() {
+            if (bizs.length < 2) {
+                bizs = [...allbizs]
+            }
+            let index = Math.floor(Math.random() * bizs.length)
+            let rez = bizs [index]
+            bizs.splice(index, 1)
+            return rez
+        }
+
+        function nextHandler() {
+            let element = document.getElementById('nextbiz');
+            element.innerText = nextBiz()
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            background-color: antiquewhite;
+        }
+
+        button {
+            position: absolute;
+            left: 10%;
+            right: 10%;
+            top: 5%;
+            bottom: 5%;
+            width: 80%;
+            border-color: blanchedalmond;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+<body>
+<button id="nextbiz" onclick="nextHandler()">доставка смс-ок почтовыми голубями</button>
+
+
+</body>
+</html>
